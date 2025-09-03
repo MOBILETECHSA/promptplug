@@ -1,19 +1,3 @@
-<!--
-INSTRUCTIONS: "Handmade crochet" by Dorothy — Landing Page
-
-How to use:
-1) Save this file as `index.html` and host it on any static host (GitHub Pages, Netlify, Vercel, or your own server).
-2) To embed in Google Sites: publish your hosted URL, then in Google Sites choose Insert → Embed → By URL or Embed code.
-   OR use the iframe snippet below if you paste into an "Embed" block that accepts HTML.
-
-<iframe src="https://YOUR-PAGE-URL" width="100%" height="1600" style="border:0;" loading="lazy" title="Handmade crochet by Dorothy"></iframe>
-
-Notes:
-- This file uses inline CSS and minimal vanilla JS. No external libraries or fonts are loaded.
-- The script wordmark uses system script fonts (Brush Script MT / cursive fallback). Replace with your preferred hosted script font if you want an exact custom look.
-- Replace all <!-- TODO: ... --> comments with real links, images, and store URLs.
--->
-
 <!doctype html>
 <html lang="en">
 <head>
