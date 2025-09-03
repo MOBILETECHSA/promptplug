@@ -1,0 +1,420 @@
+<!--
+INSTRUCTIONS: "Handmade crochet" by Dorothy — Landing Page
+
+How to use:
+1) Save this file as `index.html` and host it on any static host (GitHub Pages, Netlify, Vercel, or your own server).
+2) To embed in Google Sites: publish your hosted URL, then in Google Sites choose Insert → Embed → By URL or Embed code.
+   OR use the iframe snippet below if you paste into an "Embed" block that accepts HTML.
+
+<iframe src="https://YOUR-PAGE-URL" width="100%" height="1600" style="border:0;" loading="lazy" title="Handmade crochet by Dorothy"></iframe>
+
+Notes:
+- This file uses inline CSS and minimal vanilla JS. No external libraries or fonts are loaded.
+- The script wordmark uses system script fonts (Brush Script MT / cursive fallback). Replace with your preferred hosted script font if you want an exact custom look.
+- Replace all <!-- TODO: ... --> comments with real links, images, and store URLs.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Handmade crochet by Dorothy — Soft, sustainable, and stitched with love.</title>
+  <meta name="description" content="Small-batch handmade crochet items by Dorothy - sustainable fibers, made-to-order colors, and thoughtful gifts.">
+  <meta property="og:title" content="Handmade crochet by Dorothy">
+  <meta property="og:description" content="Soft, sustainable, and stitched with love. Browse new arrivals or request a custom order.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#1ABCBD">
+
+  <!-- Structured data example (Product list sample). Replace with real data for each product. -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Store",
+    "name":"Handmade crochet by Dorothy",
+    "description":"Small-batch handmade crochet items",
+    "url":"https://YOUR-PAGE-URL",
+    "logo":"https://YOUR-PAGE-URL/logo.png"
+  }
+  </script>
+
+  <style>
+    :root{
+      --turquoise:#1ABCBD;
+      --black:#111111;
+      --white:#ffffff;
+      --max-width:1100px;
+      --gap:1rem;
+      --radius:14px;
+      --shadow: 0 8px 20px rgba(17,17,17,0.12);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial; color:var(--black); background:linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%); -webkit-font-smoothing:antialiased;}
+    a{color:inherit;text-decoration:none}
+
+    /* Layout container */
+    .wrap{max-width:var(--max-width);margin:0 auto;padding:1rem;}
+
+    /* Header */
+    header{position:sticky;top:0;background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.8));backdrop-filter:blur(6px);z-index:50;border-bottom:1px solid rgba(0,0,0,0.04)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.75rem 0}
+    .wordmark{display:flex;align-items:center;gap:0.75rem}
+    /* Script logo uses system script fonts - change to custom if desired */
+    .logo-svg{display:block}
+    .site-title{font-family:"Brush Script MT", "Brush Script Std", cursive; font-size:1.5rem; line-height:1; color:var(--turquoise); text-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 6px 18px rgba(26,188,189,0.08);}
+    .site-sub{font-size:0.8rem;color:rgba(0,0,0,0.6)}
+
+    nav ul{display:flex;gap:0.75rem;align-items:center;margin:0;padding:0;list-style:none}
+    nav a.nav-link{padding:0.35rem 0.5rem;border-radius:8px;font-weight:600;color:rgba(0,0,0,0.75)}
+    .btn{background:var(--turquoise);color:var(--white);padding:0.55rem 0.9rem;border-radius:999px;font-weight:700;border:0;cursor:pointer;box-shadow:0 6px 18px rgba(26,188,189,0.12)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:center;padding:2.25rem 0}
+    .hero-inner{display:flex;flex-direction:column;gap:1rem}
+    .hero h1{margin:0;font-size:2.05rem;letter-spacing:-0.02em}
+    .hero p.lead{margin:0;color:rgba(0,0,0,0.65)}
+    .hero-ctas{display:flex;gap:0.75rem}
+
+    /* Product grid */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:var(--gap)}
+    .card{background:var(--white);border-radius:12px;padding:1rem;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.03);display:flex;flex-direction:column;gap:0.6rem}
+    .card img{width:100%;height:180px;object-fit:cover;border-radius:10px}
+    .card h3{margin:0;font-size:1rem}
+    .price{font-weight:800;color:var(--turquoise)}
+    .badges{display:flex;gap:0.4rem;flex-wrap:wrap}
+    .badge{font-size:0.7rem;padding:0.25rem 0.45rem;background:rgba(26,188,189,0.12);color:var(--turquoise);border-radius:8px;font-weight:700}
+
+    /* Custom order form */
+    .form{background:linear-gradient(180deg,#ffffff,#fcfcfc);padding:1rem;border-radius:12px;box-shadow:var(--shadow)}
+    label{display:block;font-weight:600;margin-bottom:0.25rem}
+    input,select,textarea{width:100%;padding:0.6rem;border-radius:8px;border:1px solid rgba(0,0,0,0.08);}
+
+    /* About & reviews */
+    .about{display:flex;gap:1rem;align-items:center}
+    .about img{width:140px;height:140px;object-fit:cover;border-radius:12px}
+    .reviews{display:flex;flex-direction:column;gap:0.5rem}
+
+    /* Footer */
+    footer{padding:2rem 0;color:rgba(0,0,0,0.7)}
+
+    /* small screens */
+    @media(min-width:720px){
+      .hero{grid-template-columns:1fr 420px}
+      .hero h1{font-size:2.4rem}
+    }
+
+    /* Utility */
+    .muted{color:rgba(0,0,0,0.55)}
+    .center{text-align:center}
+
+    /* subtle 3D product card hover */
+    .card:hover{transform:translateY(-6px) scale(1.01);transition:transform 260ms cubic-bezier(.2,.8,.2,1)}
+
+    /* Accessibility: focus visible */
+    :focus{outline:3px solid rgba(26,188,189,0.18);outline-offset:3px}
+
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <div class="wrap nav" role="navigation" aria-label="Primary navigation">
+      <div class="wordmark">
+        <!-- Script wordmark: change font-family or replace with SVG if you want exact font -->
+        <div>
+          <div class="site-title">“Handmade crochet” by Dorothy</div>
+          <div class="site-sub">Soft, sustainable, and stitched with love.</div>
+        </div>
+      </div>
+      <nav aria-label="Main">
+        <ul>
+          <li><a class="nav-link" href="#shop">Shop</a></li>
+          <li><a class="nav-link" href="#custom">Custom Orders</a></li>
+          <li><a class="nav-link" href="#reviews">Reviews</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link btn" href="#shop">Shop Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main">
+    <section class="wrap hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <h1 id="hero-title">Cozy, Handcrafted Crochet for Every Season.</h1>
+        <p class="lead">Small-batch pieces made with love — custom colors, sustainable fibers. Perfect for gifts and everyday warmth.</p>
+        <div class="hero-ctas">
+          <a class="btn" href="#shop">Browse New Arrivals</a>
+          <a class="nav-link" href="#custom">Request a Custom Order</a>
+        </div>
+
+        <div style="margin-top:1rem">
+          <div class="muted">Free local pickup (San Antonio) • Secure checkout via Etsy/Shop</div>
+        </div>
+      </div>
+
+      <div aria-hidden="false">
+        <!-- 3D-style mock product card -->
+        <div style="background:linear-gradient(180deg,var(--white),#f7ffff);border-radius:16px;padding:1rem;box-shadow:0 18px 40px rgba(26,188,189,0.08);display:flex;flex-direction:column;gap:0.8rem;align-items:center">
+          <div style="width:320px;height:220px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#e9ffff, #ffffff);">
+            <!-- Placeholder SVG image -->
+            <img alt="Placeholder - handwoven turquoise beanie" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='440'><rect width='100%' height='100%' fill='%231fe6e0'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='26' fill='%23111111'>Handmade Turquoise Beanie</text></svg>">
+          </div>
+          <div style="text-align:center">
+            <div style="font-weight:800;font-size:1.05rem">Turquoise Cozy Beanie</div>
+            <div class="price">$32</div>
+            <div style="margin-top:8px"><a class="btn" href="#shop">View Collection</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section id="shop" class="wrap">
+      <h2>New Arrivals</h2>
+      <div class="grid" aria-live="polite">
+        <!-- Repeat product card - replace alt/data with real content -->
+        <!-- Product 1 -->
+        <article class="card" aria-labelledby="p1-title" role="article">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%23e6fbfb'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='34' fill='%23111111'>Turquoise Scarf</text></svg>" alt="Turquoise hand-knit scarf - placeholder">
+          <h3 id="p1-title">Turquoise Scarf</h3>
+          <div class="muted">Lightweight, breathable, perfect for layering.</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+            <div class="price">$28</div>
+            <div class="badges"><span class="badge">Best Seller</span></div>
+          </div>
+          <div style="display:flex;gap:0.5rem;margin-top:8px"><button class="btn" onclick="openModal('p1')">View Details</button><a class="nav-link" href="#" aria-label="Buy Turquoise Scarf">Buy on Shop</a></div>
+        </article>
+
+        <!-- Product 2 -->
+        <article class="card" aria-labelledby="p2-title">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%23f2f9f9'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='34' fill='%23111111'>Chunky Throw</text></svg>" alt="Chunky throw blanket placeholder">
+          <h3 id="p2-title">Chunky Throw Blanket</h3>
+          <div class="muted">Cozy oversized throw in custom colors.</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+            <div class="price">$95</div>
+            <div class="badges"><span class="badge">Limited</span></div>
+          </div>
+          <div style="display:flex;gap:0.5rem;margin-top:8px"><button class="btn" onclick="openModal('p2')">View Details</button><a class="nav-link" href="#">Buy on Etsy</a></div>
+        </article>
+
+        <!-- Product 3 -->
+        <article class="card" aria-labelledby="p3-title">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%23fbffff'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='34' fill='%23111111'>Cozy Mitts</text></svg>" alt="Cozy mittens placeholder">
+          <h3 id="p3-title">Cozy Mitts</h3>
+          <div class="muted">Perfect for chilly mornings. Hypoallergenic yarn.</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+            <div class="price">$18</div>
+            <div class="badges"><span class="badge">Made-to-Order</span></div>
+          </div>
+          <div style="display:flex;gap:0.5rem;margin-top:8px"><button class="btn" onclick="openModal('p3')">View Details</button><a class="nav-link" href="#">Buy</a></div>
+        </article>
+
+        <!-- Product 4 -->
+        <article class="card" aria-labelledby="p4-title">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%23e9ffff'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='34' fill='%23111111'>Baby Cocoon</text></svg>" alt="Baby cocoon placeholder">
+          <h3 id="p4-title">Baby Cocoon</h3>
+          <div class="muted">Gentle yarns, machine-washable options available.</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+            <div class="price">$45</div>
+            <div class="badges"><span class="badge">Eco-Friendly Fibers</span></div>
+          </div>
+          <div style="display:flex;gap:0.5rem;margin-top:8px"><button class="btn" onclick="openModal('p4')">View Details</button><a class="nav-link" href="#">Buy</a></div>
+        </article>
+
+        <!-- Product 5 -->
+        <article class="card" aria-labelledby="p5-title">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%23f8ffff'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='34' fill='%23111111'>Ear Warmer</text></svg>" alt="Ear warmer placeholder">
+          <h3 id="p5-title">Ear Warmer Headband</h3>
+          <div class="muted">Stretchy, comfortable, fits most sizes.</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+            <div class="price">$14</div>
+            <div class="badges"><span class="badge">Best Seller</span></div>
+          </div>
+          <div style="display:flex;gap:0.5rem;margin-top:8px"><button class="btn" onclick="openModal('p5')">View Details</button><a class="nav-link" href="#">Buy</a></div>
+        </article>
+
+        <!-- Product 6 -->
+        <article class="card" aria-labelledby="p6-title">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%23f2fefe'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='34' fill='%23111111'>Trio Coasters</text></svg>" alt="Coasters placeholder">
+          <h3 id="p6-title">Trio Coasters</h3>
+          <div class="muted">Set of three coasters - washable and durable.</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+            <div class="price">$12</div>
+            <div class="badges"><span class="badge">Limited</span></div>
+          </div>
+          <div style="display:flex;gap:0.5rem;margin-top:8px"><button class="btn" onclick="openModal('p6')">View Details</button><a class="nav-link" href="#">Buy</a></div>
+        </article>
+
+        <!-- Product 7 -->
+        <article class="card" aria-labelledby="p7-title">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%23effffb'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='34' fill='%23111111'>Neck Warmer</text></svg>" alt="Neck warmer placeholder">
+          <h3 id="p7-title">Neck Warmer</h3>
+          <div class="muted">Compact and cozy; travel-friendly.</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+            <div class="price">$22</div>
+            <div class="badges"><span class="badge">Made-to-Order</span></div>
+          </div>
+          <div style="display:flex;gap:0.5rem;margin-top:8px"><button class="btn" onclick="openModal('p7')">View Details</button><a class="nav-link" href="#">Buy</a></div>
+        </article>
+
+        <!-- Product 8 -->
+        <article class="card" aria-labelledby="p8-title">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%23faffff'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='34' fill='%23111111'>Gift Set</text></svg>" alt="Gift set placeholder">
+          <h3 id="p8-title">Gift Set</h3>
+          <div class="muted">Curated gift box: beanie, mitts, and coasters.</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+            <div class="price">$60</div>
+            <div class="badges"><span class="badge">Limited</span></div>
+          </div>
+          <div style="display:flex;gap:0.5rem;margin-top:8px"><button class="btn" onclick="openModal('p8')">View Details</button><a class="nav-link" href="#">Buy</a></div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Custom Orders -->
+    <section id="custom" class="wrap" style="margin-top:2rem">
+      <h2>Custom Orders</h2>
+      <div class="form">
+        <form id="customOrderForm" onsubmit="event.preventDefault();submitCustomOrder();">
+          <div style="display:grid;grid-template-columns:1fr;gap:0.6rem">
+            <label for="name">Full name</label>
+            <input id="name" required>
+            <label for="email">Email</label>
+            <input id="email" type="email" required>
+            <label for="itemType">Item type</label>
+            <select id="itemType"><option>Beanie</option><option>Scarf</option><option>Blanket</option><option>Mitts</option></select>
+            <label for="colors">Color preference</label>
+            <input id="colors" placeholder="e.g. turquoise + cream">
+            <label for="notes">Additional notes</label>
+            <textarea id="notes" rows="4" placeholder="Any sizing, timeline, or special requests"></textarea>
+            <button class="btn" type="submit">Submit Request</button>
+            <div id="formMsg" role="status" aria-live="polite" class="muted" style="margin-top:0.5rem"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="wrap" style="margin-top:2rem">
+      <h2>About Dorothy</h2>
+      <div class="about">
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><rect width='100%' height='100%' fill='%23e9ffff'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='26' fill='%23111111'>Dorothy - Maker</text></svg>" alt="Dorothy - maker portrait placeholder">
+        <div>
+          <p>I’m Dorothy — I make small-batch crochet items with sustainably-sourced yarn. Every piece is handcrafted with attention to detail and love. Slight variations are part of the charm and guarantee uniqueness.</p>
+          <ul>
+            <li>Eco-friendly fibers</li>
+            <li>Hypoallergenic options</li>
+            <li>Hand wash or gentle machine wash</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="wrap" style="margin-top:2rem">
+      <h2>Reviews</h2>
+      <div class="reviews">
+        <blockquote>⭐️⭐️⭐️⭐️⭐️ "Love my new beanie — fits perfectly and the color is gorgeous." — Maria</blockquote>
+        <blockquote>⭐️⭐️⭐️⭐️⭐️ "Fast shipping, beautiful packaging. Will buy again." — Alex</blockquote>
+        <blockquote>⭐️⭐️⭐️⭐️ "Soft and warm — great gift." — Carmen</blockquote>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="wrap" style="margin-top:2rem">
+      <h2>FAQ</h2>
+      <details><summary>How long does a custom order take?</summary>
+        <p class="muted" style="margin:0.5rem 0">Typical processing is 7–14 business days depending on the item and current queue.</p>
+      </details>
+      <details><summary>What fibers do you use?</summary>
+        <p class="muted" style="margin:0.5rem 0">We use a mix of sustainable cottons, bamboo blends, and premium acrylics when washability is required.</p>
+      </details>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="wrap" style="margin-top:2rem">
+      <h2>Join the Newsletter</h2>
+      <form onsubmit="event.preventDefault();document.getElementById('newsletterMsg').textContent='Thanks — you’re subscribed (mock).';">
+        <input aria-label="Email for newsletter" placeholder="your@email.com" required>
+        <button class="btn" type="submit">Subscribe</button>
+        <div id="newsletterMsg" class="muted" style="margin-top:0.5rem"></div>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="wrap" role="contentinfo">
+    <div style="display:flex;flex-direction:column;gap:0.5rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+        <div>© <span id="year"></span> “Handmade crochet” by Dorothy — All rights reserved.</div>
+        <div style="display:flex;gap:0.6rem;align-items:center">
+          <!-- TODO: Replace with real social links -->
+          <a href="#" aria-label="Etsy">Etsy</a>
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Pinterest">Pinterest</a>
+        </div>
+      </div>
+      <div class="muted" style="font-size:0.9rem">Processing times: 7–14 business days • Returns: Contact within 14 days — see full policy. <!-- TODO: Link to policies --> </div>
+    </div>
+  </footer>
+
+  <!-- Modal template (simple) -->
+  <div id="modal" role="dialog" aria-hidden="true" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;visibility:hidden;opacity:0;transition:opacity .22s,visibility .22s;z-index:120">
+    <div style="background:var(--white);border-radius:12px;padding:1rem;max-width:720px;width:100%;box-shadow:0 30px 60px rgba(17,17,17,0.18)">
+      <button aria-label="Close modal" onclick="closeModal()" style="float:right;background:none;border:0;font-size:18px;cursor:pointer">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    // small JS interactions
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function openModal(pid){
+      const content = {
+        p1:{title:'Turquoise Scarf',desc:'Lightweight, breathable, perfect for layering.',price:'$28'},
+        p2:{title:'Chunky Throw Blanket',desc:'Oversized and cozy. Custom colors.',price:'$95'},
+        p3:{title:'Cozy Mitts',desc:'Hypoallergenic yarn options.',price:'$18'},
+        p4:{title:'Baby Cocoon',desc:'Machine-washable options available.',price:'$45'},
+        p5:{title:'Ear Warmer Headband',desc:'Comfortable and stretchy.',price:'$14'},
+        p6:{title:'Trio Coasters',desc:'Set of three coasters.',price:'$12'},
+        p7:{title:'Neck Warmer',desc:'Compact and cozy.',price:'$22'},
+        p8:{title:'Gift Set',desc:'Curated gift box: beanie, mitts, and coasters.',price:'$60'}
+      };
+      const d = content[pid] || {title:'Product',desc:'Details coming soon',price:'--'};
+      document.getElementById('modalContent').innerHTML = `<h3>${d.title}</h3><p class=\"muted\">${d.desc}</p><div style=\"font-weight:800;color:var(--turquoise)\">${d.price}</div><div style=\"margin-top:10px\"><a class=\"btn\" href=\"#\">Buy</a> <a class=\"nav-link\" href=\"#\">More details</a></div>`;
+      const m = document.getElementById('modal');
+      m.style.visibility='visible';m.style.opacity=1;m.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){const m=document.getElementById('modal');m.style.opacity=0;setTimeout(()=>{m.style.visibility='hidden';m.setAttribute('aria-hidden','true')},220)}
+
+    // mock custom order submit
+    function submitCustomOrder(){
+      const name = document.getElementById('name').value || '—';
+      const email = document.getElementById('email').value || '—';
+      document.getElementById('formMsg').textContent = `Thanks ${name}! Request received. We will contact you at ${email} (mock).`;
+      // TODO: replace with real POST to form handler or Zapier/Google Sheets
+    }
+
+    // smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el){el.scrollIntoView({behavior:'smooth',block:'start'})}
+        }
+      })
+    })
+
+    // respect prefers-reduced-motion
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if(media.matches){
+      document.querySelectorAll('.card').forEach(c=>c.style.transition='none');
+    }
+  </script>
+</body>
+</html>
